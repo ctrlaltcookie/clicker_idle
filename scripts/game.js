@@ -77,7 +77,7 @@ const runGame = () => {
       secondCount = 0;
       currentMood = getRandomMood();
       moodeLabel.innerText = currentMood;
-      moodeLabel.styles = STYLES[currentMood];
+      moodeLabel.className = STYLES[currentMood];
     };
     secondCount++;
 
