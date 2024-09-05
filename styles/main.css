@@ -76,6 +76,16 @@ main {
   justify-content: center;
   align-items: center;
   height: 70%;
+
+  img {
+    margin: 10px;
+    width: 20px;
+    aspect-ratio: 1;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
 }
 
 .timer {
@@ -117,7 +127,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 .clicky {
-    padding-top: 1rem;
+  padding-top: 1rem;
   background-color: black;
   color: white;
   width: 20%;
@@ -150,13 +160,13 @@ progress[value]::-webkit-progress-bar {
 }
 
 .float-vertical {
-    animation: float-vertical 0.3s linear infinite both -0.5s;
-    color: red;
+  animation: float-vertical 0.3s linear infinite both -0.5s;
+  color: red;
 }
 
 .float-horizontal {
-    animation: float-horizontal 2s linear infinite both -0.5s;
-    color: green;
+  animation: float-horizontal 2s linear infinite both -0.5s;
+  color: green;
 }
 
 @keyframes float-vertical {
@@ -172,14 +182,13 @@ progress[value]::-webkit-progress-bar {
 }
 
 @keyframes float-horizontal {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-20px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
   }
-  
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
