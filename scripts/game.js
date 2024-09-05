@@ -7,6 +7,8 @@ const runGame = () => {
     NEUTRAL: "neutral"
   }
 
+  let previousMoods = [];
+
   let points = 0;
   let gameDiv = document.getElementById("game");
   let pointTotal = document.getElementById("point_total")
@@ -75,21 +77,30 @@ const runGame = () => {
 
   const getRandomMood = () => {
     const rand = getRandomInt(9);
+    let mood;
+    const lastLastMood = previousMoods[0];
+    const lastMood = previousMoods[1];
+
     if (rand === 0) {
-      return MOODS.HAPPY;
+      mood = MOODS.HAPPY;
     }
     if (rand === 1){
-      return MOODS.ANGRY;
-    } 
+      mood = MOODS.SAD;
+    }
     if (rand === 2) {
-      return MOODS.SAD;
+      mood = MOODS.ANGRY;
     }
     if (rand === 3) {
-      return MOODS.HUNGRY;
+      mood = MOODS.HUNGRY;
     }
     if (rand >= 4) {
-      return MOODS.NEUTRAL;
+      mood = MOODS.NEUTRAL;
     }
+
+    if (mood === lastMood && mood === lastLastMood) {
+      return getRandomMood();
+    }
+    return mood;
   }
 
   const letterFactory = (mood) => {
@@ -113,6 +124,9 @@ const runGame = () => {
   moodeLabel.innerText = currentMood;
 
   let secondCount = 0;
+
+  // push the first mood
+  // hopefully leaving two moods
   // tbh the kind of game loop
   let gameTimer = setInterval(() => {
     if (secondCount >= 10) {
@@ -120,6 +134,10 @@ const runGame = () => {
       currentMood = getRandomMood();
       moodeLabel.innerText = `click the ${currentMood} text`;
       moodeLabel.className = currentMood;
+      if (previousMoods.length > 2) {
+        previousMoods.shift();
+      }
+      previousMoods.push(currentMood);
     };
     secondCount++;
     progressBar.value = secondCount * 10;
