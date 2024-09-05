@@ -82,7 +82,9 @@ const runGame = () => {
     progressBar.value = secondCount * 10;
   }, ONE_SECOND);
 
-  addEmotee();
+  for (let i = 0; i < 10; i++) {
+    addEmotee();
+  }
 }
 
 window.addEventListener("load", () => {
