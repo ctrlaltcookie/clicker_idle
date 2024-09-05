@@ -125,7 +125,7 @@ progress[value]::-webkit-progress-bar {
   min-height: 400px;
   background-color: none;
   justify-content: space-evenly;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .clicky {
