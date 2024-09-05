@@ -24,10 +24,9 @@ emotee's
 
 ## MVP
 * a screen
-* a single character 
-  * that has an emotion
-  * an animation
-  * can be clicked
+* a single character
+  * emotion represented by animation
+  * clickable
   * replaces itself with a neutral piece of text
 * points must go up when the right emotion is picked
 * a timer to tell the player which emotion to click
