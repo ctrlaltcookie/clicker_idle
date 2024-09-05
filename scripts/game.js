@@ -27,6 +27,7 @@ const runGame = () => {
     if (emotee.dataset.mood === currentMood) {
       emotee.remove();
       points++;
+      pointTotal.innerText = points;
       addEmotee();
     }
   }
@@ -82,7 +83,6 @@ const runGame = () => {
       moodeLabel.className = STYLES[currentMood];
     };
     secondCount++;
-    pointTotal.innerText = points;
     progressBar.value = secondCount * 10;
   }, ONE_SECOND);
 
