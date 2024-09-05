@@ -7,10 +7,12 @@ const runGame = () => {
   gameDiv.innerHTML = letterFactory();
 }
 
+const clickHandler = (event) => {
+  // event.target is the targeted image
+}
+
 window.addEventListener("load", () => {
   runGame();
 
-  document.body.addEventListener("click", () => {
-    window.alert("you clicked SOMEWHERE on the screen you little gremlin you");
-  });
+  document.body.addEventListener("click", clickHandler);
 });
