@@ -20,7 +20,7 @@ const runGame = () => {
   const getRandomEmoti = () => {
     const EMOTI = [
       "@",
-      "~",
+      "tilda",
       "a",
       "b",
       "c",
