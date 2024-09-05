@@ -1,7 +1,8 @@
 window.addEventListener("load", () => {
   let fullOfCookies = document.cookie.split(";").find((row) => row.startsWith("acceptedCookies"))
   if(fullOfCookies) {
-    
+    let popup = document.getElementById("cookie-popup");
+    popup.remove();
   }
 
 })
