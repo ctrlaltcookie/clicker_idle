@@ -53,7 +53,7 @@ const runGame = () => {
 
   const letterFactory = (mood) => {
     const emoteeMood = getRandomMood();
-    return `<img data-mood="${emoteeMood}" class="${STYLES[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
+    return `<img data-mood="${emoteeMood}" class="${STYLES[emoteeMood]}" src="images/a.png" alt="" id="a" draggable="false"></img>`
   }
 
   // variables for navigation zxc
