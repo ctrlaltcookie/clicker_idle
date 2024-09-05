@@ -10,6 +10,8 @@
 
 - extend the timer for each emotion (cost X)
 
+- lessen the liklihood of getting neutral
+
 ## ascension ideas: 
 
 - choose to ascend every 1000 points
