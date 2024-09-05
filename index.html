@@ -10,6 +10,11 @@
     <script type="module" src="styles/styles.js"></script>
     <script src="./scripts/cookies.js"></script>
     <script src="./scripts/game.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -27,15 +32,22 @@
         <!-- this is where game function are gonna be -->
     </main>
 
-<div class="bottom-bar">
-    <div class="clicky">
-        <h2>Points</h2>
-        <p id="point_total">Number of Points</p>
+    <div class="bottom-bar">
+        <div class="clicky">
+            <h2>Points</h2>
+            <p id="point_total">Number of Points</p>
+        </div>
+        <div class="clicky">
+            <h2>Upgrades</h2>
+        </div>
+        <div class="clicky">
+            <h2>???</h2>
+        </div>
+        <div class="clicky">
+            <h2>Instructions</h2>
+            <p>Click the angries!</p>
+        </div>
     </div>
-    <div class="clicky"><h2>Upgrades</h2></div>
-    <div class="clicky"><h2>???</h2></div>
-    <div class="clicky"><h2>Instructions</h2><p>Click the angries!</p></div>
-</div>
 
     <footer id="cookie-popup">For this game to work we use cookies, agree or fuck off (close the browser window) <button
             onclick="saveCookie()">agree</button></footer>
