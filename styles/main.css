@@ -73,6 +73,10 @@ body {
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 100%;
+  padding: 20px;
   justify-content: center;
   align-items: center;
   height: 70%;
@@ -81,10 +85,6 @@ main {
     margin: 10px;
     width: 20px;
     aspect-ratio: 1;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
   }
 }
 
