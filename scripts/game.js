@@ -1,4 +1,8 @@
 const runGame = () => {
+  console.log(document.cookie);
+  let score = document.cookie.split(";").find((row) => row.startsWith("score"));
+  let points = parseInt(score, 10) || 0;
+
   const MOODS = {
     HAPPY: "happy",
     SAD: "sad",
@@ -9,7 +13,6 @@ const runGame = () => {
 
   let previousMoods = [];
 
-  let points = 0;
   let gameDiv = document.getElementById("game");
   let pointTotal = document.getElementById("point_total")
 
@@ -60,13 +63,20 @@ const runGame = () => {
 
   const clickHandler = (event) => {
     // event.target is the targeted image
-    const emoti = event.target;
-    if (emoti.dataset.mood === currentMood) {
-      emoti.remove();
+    const item = event.target;
+    if (item.dataset.upgrade === true) {
+      handleUpgrades();
+    }
+    if (item.dataset.mood === currentMood) {
+      item.remove();
       incrementPoints();
       pointTotal.innerText = points;
       addEmoti();
     }
+  }
+
+  const handleUpgrades = () => {
+
   }
 
   // allows for 0 based indexing now
@@ -111,6 +121,7 @@ const runGame = () => {
 
   // variables for navigation zxc
   const ONE_SECOND = 1000;
+  const THIRTY_SECONDS = 30 * ONE_SECOND;
   let moodeLabel = document.getElementById("current_mood");
   
   let progressBar = document.getElementById("progress_bar")
@@ -141,8 +152,15 @@ const runGame = () => {
     };
     secondCount++;
     progressBar.value = secondCount * 10;
+    pointTotal.innerText = points;
+    document.cookie = `score=${points} expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure`
+    console.log(document.cookie)
   }, ONE_SECOND);
 
+  // let saveTimer = setInterval(() => {
+  //   document.cookie = `score=${points} expires=Fri, 31 Dec 9999 23:59:59 GMT; Secure`
+  // }, THIRTY_SECONDS)
+  //document.cookie
   for (let i = 0; i < 180; i++) {
     addEmoti();
   }
