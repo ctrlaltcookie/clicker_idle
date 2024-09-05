@@ -36,11 +36,13 @@ const runGame = () => {
   const ONE_SECOND = 1000;
   const TEN_SECONDS = 10 * ONE_SECOND
   let moodeLabel = document.getElementById("current_mood");
+  
   let progressBar = document.getElementById("progress_bar")
 
   document.body.addEventListener("click", clickHandler);
 
   let currentMood = getRandomMood();
+  moodeLabel.innerText = currentMood;
 
   let secondCount = 0;
   let gameTimer = setInterval(() => {
