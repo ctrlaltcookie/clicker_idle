@@ -1,8 +1,7 @@
 # clicker_idle
 game with friend
 
-# design
-
+# design gubbins (stream of consciousness for the design)
 we are making a game that is about clicking on emotive text, weirdly emotive text.
 
 the way it works is you click on some text that has an emotion displaying and you remove it from a text stream
@@ -24,7 +23,6 @@ a game texts emotions
 emotee's
 
 ## MVP
-
 * a screen
 * a single character 
   * that has an emotion
@@ -33,7 +31,6 @@ emotee's
   * replaces itself with a neutral piece of text
 * points must go up when the right emotion is picked
 * a timer to tell the player which emotion to click
-
 
 ## link to the clicker
 [CLICKER IDLE](https://ctrlaltcookie.github.io/clicker_idle/)
