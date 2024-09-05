@@ -78,6 +78,33 @@ main {
   height: 100dvh;
 }
 
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  width: 80%;
+  gap: 10px;
+  font-size: 2rem;
+}
+
+progress {
+  display: flex;
+  width: 80%;
+}
+
+progress[value] {
+  background-color: #eee;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 30px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: red;
+}
+
 #cookie-popup {
   display: flex;
   flex-direction: column;

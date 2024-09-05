@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,26 @@
     <script src="./scripts/cookies.js"></script>
     <script src="./scripts/game.js"></script>
 </head>
+
 <body>
 
     <div class="scanlines"></div>
 
-    <header></header>
+    <header>
+        <div class="timer">
+            <label for="progress-bar">progress bar</label>
+            <progress id="progress-bar" max="100" value="50"></progress>
+        </div>
+
+    </header>
 
     <main id="game">
         <!-- this is where game function are gonna be -->
+
     </main>
 
-    <footer id="cookie-popup">For this game to work we use cookies, agree or fuck off (close the browser window) <button onclick="saveCookie()">agree</button></footer>
+    <footer id="cookie-popup">For this game to work we use cookies, agree or fuck off (close the browser window) <button
+            onclick="saveCookie()">agree</button></footer>
 </body>
+
 </html>
