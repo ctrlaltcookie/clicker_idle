@@ -68,7 +68,7 @@ main {
     height: 100dvh;
 }
 
-#cookies {
+#cookie-popup {
     display: flex;
     flex-direction: column;
     justify-content: center;
