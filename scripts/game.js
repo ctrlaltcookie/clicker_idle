@@ -64,8 +64,8 @@ const runGame = () => {
   const clickHandler = (event) => {
     // event.target is the targeted image
     const item = event.target;
-    if (item.dataset.upgrade === true) {
-      handleUpgrades();
+    if (item.dataset.upgrade === "true") {
+      handleUpgrades(event.target);
     }
     if (item.dataset.mood === currentMood) {
       item.remove();
@@ -75,8 +75,16 @@ const runGame = () => {
     }
   }
 
-  const handleUpgrades = () => {
+  const handleUpgrades = (upgrade) => {
+    if (upgrade.dataset.name === "lengthen") {
+      upgrade.remove();
+      points -= upgrade.dataset.cost;
+      lengthenTimer(2);
+    }
+  }
 
+  const lengthenTimer = (ammount) => {
+    secondCountMax += ammount;
   }
 
   // allows for 0 based indexing now
@@ -135,12 +143,13 @@ const runGame = () => {
   moodeLabel.innerText = currentMood;
 
   let secondCount = 0;
+  let secondCountMax = 10;
 
   // push the first mood
   // hopefully leaving two moods
   // tbh the kind of game loop
   let gameTimer = setInterval(() => {
-    if (secondCount >= 10) {
+    if (secondCount >= secondCountMax) {
       secondCount = 0;
       currentMood = getRandomMood();
       moodeLabel.innerText = `click the ${currentMood} text`;
@@ -151,10 +160,9 @@ const runGame = () => {
       previousMoods.push(currentMood);
     };
     secondCount++;
-    progressBar.value = secondCount * 10;
+    progressBar.value = secondCount * secondCountMax;
     pointTotal.innerText = points;
     document.cookie = `score=${points} expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure`
-    console.log(document.cookie)
   }, ONE_SECOND);
 
   // let saveTimer = setInterval(() => {
