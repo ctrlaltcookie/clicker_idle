@@ -172,7 +172,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 .sad {
-  animation: sad 4s linear infinite both -0.5s;
+  animation: sad 4s linear forwards -0.5s;
   color: blue;
 }
 
