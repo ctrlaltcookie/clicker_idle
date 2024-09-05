@@ -3,7 +3,8 @@ const runGame = () => {
     HAPPY: "happy",
     SAD: "sad",
     ANGRY: "angry",
-    HUNGRY: "hungry"
+    HUNGRY: "hungry",
+    NEUTRAL: "netural"
   }
 
   let points = 0;
@@ -31,7 +32,7 @@ const runGame = () => {
   }
 
   const getRandomMood = () => {
-    const rand = getRandomInt(3);
+    const rand = getRandomInt(10);
     if (rand === 1) {
       return MOODS.HAPPY;
     }
@@ -43,6 +44,9 @@ const runGame = () => {
     }
     if (rand === 4) {
       return MOODS.HUNGRY;
+    }
+    if (rand >= 5) {
+      return MOODS.NEUTRAL;
     }
   }
 
