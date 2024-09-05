@@ -15,7 +15,7 @@ const runGame = () => {
 
   let points = 0;
   let gameDiv = document.getElementById("game");
-  let pointTotal = documen.getElementById("point_total")
+  let pointTotal = document.getElementById("point_total")
 
   const addEmotee = () => {
     gameDiv.innerHTML += letterFactory();
