@@ -4,7 +4,7 @@ const runGame = () => {
     SAD: "sad",
     ANGRY: "angry",
     HUNGRY: "hungry",
-    NEUTRAL: "netural"
+    NEUTRAL: "neutral"
   }
 
   let points = 0;
@@ -15,12 +15,17 @@ const runGame = () => {
     gameDiv.innerHTML += letterFactory();
   }
 
+  const incrementPoints = () => {
+    if (currentMood === MOODS.NEUTRAL) return;
+    points++
+  }
+
   const clickHandler = (event) => {
     // event.target is the targeted image
     const emotee = event.target;
     if (emotee.dataset.mood === currentMood) {
       emotee.remove();
-      points++;
+      incrementPoints();
       pointTotal.innerText = points;
       addEmotee();
     }
@@ -57,7 +62,6 @@ const runGame = () => {
 
   // variables for navigation zxc
   const ONE_SECOND = 1000;
-  const TEN_SECONDS = 10 * ONE_SECOND
   let moodeLabel = document.getElementById("current_mood");
   
   let progressBar = document.getElementById("progress_bar")
