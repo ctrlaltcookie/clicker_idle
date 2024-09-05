@@ -113,9 +113,11 @@ progress[value]::-webkit-progress-bar {
   min-height: 400px;
   background-color: none;
   justify-content: space-evenly;
+  font-size: 1.5rem;
 }
 
 .clicky {
+    padding-top: 1rem;
   background-color: black;
   color: white;
   width: 20%;
@@ -147,11 +149,15 @@ progress[value]::-webkit-progress-bar {
   }
 }
 
-.float {
-  animation: float 1s repeat;
+.float-vertical {
+    animation: float-vertical 3s linear infinite both -0.5s;
 }
 
-@keyframes float {
+.float-horizontal {
+    animation: float-horizontal 3s linear infinite both -0.5s;
+}
+
+@keyframes float-vertical {
   0% {
     transform: translateY(0);
   }
@@ -162,3 +168,16 @@ progress[value]::-webkit-progress-bar {
     transform: translateY(0);
   }
 }
+
+@keyframes float-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
