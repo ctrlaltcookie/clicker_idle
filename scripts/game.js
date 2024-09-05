@@ -1,7 +1,7 @@
 const runGame = () => {
 
-  const letterFactory = () => {
-    return `<img src="images/a.png" alt="" id="a"></img>`
+  const letterFactory = (mood) => {
+    return `<img data-mood="${mood}" src="images/a.png" alt="" id="a"></img>`
   }
 
   const getRandomInt = (max, plus = true) => {
@@ -58,7 +58,7 @@ const runGame = () => {
 
   let gameDiv = document.getElementById("game");
 
-  gameDiv.innerHTML += letterFactory();
+  gameDiv.innerHTML += letterFactory(getRandomMood());
 }
 
 const clickHandler = (event) => {
