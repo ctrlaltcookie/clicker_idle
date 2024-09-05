@@ -14,3 +14,7 @@ const saveCookie = () => {
   let popup = document.getElementById("cookie-popup");
   popup.remove();
 };
+
+const resetCookie = () => {
+  document.cookie = "";
+}
