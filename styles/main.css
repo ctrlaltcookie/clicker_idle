@@ -161,17 +161,27 @@ progress[value]::-webkit-progress-bar {
   }
 }
 
-.float-vertical {
-  animation: float-vertical 0.3s linear infinite both -0.5s;
+.angry {
+  animation: angry 0.2s linear infinite both -0.5s;
   color: red;
 }
 
-.float-horizontal {
-  animation: float-horizontal 2s linear infinite both -0.5s;
+.happy {
+  animation: happy 2s linear infinite both -0.5s;
   color: green;
 }
 
-@keyframes float-vertical {
+.sad {
+  animation: sad 4s linear infinite both -0.5s;
+  color: blue;
+}
+
+.hungry {
+  animation: hungry 1s linear infinite both -0.5s;
+  color: orange;
+}
+
+@keyframes angry {
   0% {
     transform: translateY(0);
   }
@@ -183,7 +193,7 @@ progress[value]::-webkit-progress-bar {
   }
 }
 
-@keyframes float-horizontal {
+@keyframes happy {
   0% {
     transform: translateX(0);
   }
@@ -192,5 +202,23 @@ progress[value]::-webkit-progress-bar {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes sad {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes hungry {
+  0% {
+    transform: scale(100%);
+  }
+  100% {
+    transform: scale(150%);
   }
 }
