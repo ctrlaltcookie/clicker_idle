@@ -1,10 +1,25 @@
 const runGame = () => {
+  const MOODS = {
+    HAPPY: "happy",
+    SAD: "sad",
+    ANGRY: "angry",
+    HUNGRY: "hungry"
+  }
+
+  let points = 0;
+  let gameDiv = document.getElementById("game");
+
+  const addEmotee = () => {
+    gameDiv.innerHTML += letterFactory(getRandomMood());
+  }
 
   const clickHandler = (event) => {
     // event.target is the targeted image
     const emotee = event.target;
     if (emotee.dataset.mood === currentMood) {
       emotee.remove();
+      points++;
+      addEmotee();
     }
   }
 
@@ -15,13 +30,6 @@ const runGame = () => {
   const getRandomInt = (max, plus = true) => {
     let rand = Math.floor(Math.random() * max);
     return plus ? rand + 1 : rand
-  }
-
-  const MOODS = {
-    HAPPY: "happy",
-    SAD: "sad",
-    ANGRY: "angry",
-    HUNGRY: "hungry"
   }
 
   const getRandomMood = () => {
@@ -67,9 +75,7 @@ const runGame = () => {
     progressBar.value = secondCount * 10;
   }, ONE_SECOND);
 
-  let gameDiv = document.getElementById("game");
-
-  gameDiv.innerHTML += letterFactory(getRandomMood());
+  addEmotee();
 }
 
 window.addEventListener("load", () => {
