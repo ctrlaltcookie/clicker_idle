@@ -11,7 +11,7 @@ const runGame = () => {
   let gameDiv = document.getElementById("game");
   let pointTotal = document.getElementById("point_total")
 
-  const addEmotee = () => {
+  const addEmoti = () => {
     gameDiv.innerHTML += letterFactory();
   }
 
@@ -22,12 +22,12 @@ const runGame = () => {
 
   const clickHandler = (event) => {
     // event.target is the targeted image
-    const emotee = event.target;
-    if (emotee.dataset.mood === currentMood) {
-      emotee.remove();
+    const emoti = event.target;
+    if (emoti.dataset.mood === currentMood) {
+      emoti.remove();
       incrementPoints();
       pointTotal.innerText = points;
-      addEmotee();
+      addEmoti();
     }
   }
 
@@ -56,8 +56,8 @@ const runGame = () => {
   }
 
   const letterFactory = (mood) => {
-    const emoteeMood = mood || getRandomMood();
-    return `<img data-mood="${emoteeMood}" class="${emoteeMood}" src="images/a.png" alt="" draggable="false"></img>`
+    const emotiMood = mood || getRandomMood();
+    return `<img data-mood="${emotiMood}" class="${emotiMood}" src="images/emoti/${randomEmoti}.png" alt="" draggable="false"></img>`
   }
 
   // variables for navigation zxc
@@ -88,7 +88,7 @@ const runGame = () => {
   }, ONE_SECOND);
 
   for (let i = 0; i < 180; i++) {
-    addEmotee();
+    addEmoti();
   }
 }
 
