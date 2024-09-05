@@ -3,7 +3,8 @@ const runGame = () => {
     HAPPY: "happy",
     SAD: "sad",
     ANGRY: "angry",
-    HUNGRY: "hungry"
+    HUNGRY: "hungry",
+    NEUTRAL: "neutral"
   }
 
   let points = 0;
@@ -14,12 +15,17 @@ const runGame = () => {
     gameDiv.innerHTML += letterFactory();
   }
 
+  const incrementPoints = () => {
+    if (currentMood === MOODS.NEUTRAL) return;
+    points++
+  }
+
   const clickHandler = (event) => {
     // event.target is the targeted image
     const emotee = event.target;
     if (emotee.dataset.mood === currentMood) {
       emotee.remove();
-      points++;
+      incrementPoints();
       pointTotal.innerText = points;
       addEmotee();
     }
@@ -31,7 +37,7 @@ const runGame = () => {
   }
 
   const getRandomMood = () => {
-    const rand = getRandomInt(3);
+    const rand = getRandomInt(10);
     if (rand === 1) {
       return MOODS.HAPPY;
     }
@@ -44,6 +50,9 @@ const runGame = () => {
     if (rand === 4) {
       return MOODS.HUNGRY;
     }
+    if (rand >= 5) {
+      return MOODS.NEUTRAL;
+    }
   }
 
   const letterFactory = (mood) => {
@@ -53,7 +62,6 @@ const runGame = () => {
 
   // variables for navigation zxc
   const ONE_SECOND = 1000;
-  const TEN_SECONDS = 10 * ONE_SECOND
   let moodeLabel = document.getElementById("current_mood");
   
   let progressBar = document.getElementById("progress_bar")
@@ -73,7 +81,7 @@ const runGame = () => {
       secondCount = 0;
       currentMood = getRandomMood();
       moodeLabel.innerText = `click the ${currentMood} text`;
-      moodeLabel.className = STYLES[currentMood];
+      moodeLabel.className = currentMood;
     };
     secondCount++;
     progressBar.value = secondCount * 10;
