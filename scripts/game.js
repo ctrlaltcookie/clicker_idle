@@ -6,6 +6,13 @@ const runGame = () => {
     HUNGRY: "hungry"
   }
 
+  const STYLES = {
+    [MOODS.ANGRY]: "float-vertical",
+    [MOODS.HAPPY]: "float-horizontal",
+    [MOODS.SAD]: "float-horizontal",
+    [MOODS.HUNGRY]: "float-horizontal"
+  }
+
   let points = 0;
   let gameDiv = document.getElementById("game");
 
@@ -46,13 +53,7 @@ const runGame = () => {
 
   const letterFactory = (mood) => {
     const emoteeMood = getRandomMood();
-    const styles = {
-      [MOODS.ANGRY]: "float-vertical",
-      [MOODS.HAPPY]: "float-horizontal",
-      [MOODS.SAD]: "float-horizontal",
-      [MOODS.HUNGRY]: "float-horizontal"
-    }
-    return `<img data-mood="${emoteeMood}" class="${styles[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
+    return `<img data-mood="${emoteeMood}" class="${STYLES[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
   }
 
   // variables for navigation zxc
@@ -76,6 +77,7 @@ const runGame = () => {
       secondCount = 0;
       currentMood = getRandomMood();
       moodeLabel.innerText = currentMood;
+      moodeLabel.styles = STYLES[currentMood];
     };
     secondCount++;
 
