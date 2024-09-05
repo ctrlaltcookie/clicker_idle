@@ -1,5 +1,13 @@
 const runGame = () => {
 
+  const clickHandler = (event) => {
+    // event.target is the targeted image
+    const emotee = event.target;
+    if (emotee.dataset.mood === currentMood) {
+      emotee.remove();
+    }
+  }
+
   const letterFactory = (mood) => {
     return `<img data-mood="${mood}" src="images/a.png" alt="" id="a"></img>`
   }
@@ -39,9 +47,12 @@ const runGame = () => {
   
   let progressBar = document.getElementById("progress_bar")
 
+  // the current mood has to be set so that
+  // the click handler can access it as it's
+  // global state
+  let currentMood = getRandomMood();
   document.body.addEventListener("click", clickHandler);
 
-  let currentMood = getRandomMood();
   moodeLabel.innerText = currentMood;
 
   let secondCount = 0;
@@ -59,10 +70,6 @@ const runGame = () => {
   let gameDiv = document.getElementById("game");
 
   gameDiv.innerHTML += letterFactory(getRandomMood());
-}
-
-const clickHandler = (event) => {
-  // event.target is the targeted image
 }
 
 window.addEventListener("load", () => {
