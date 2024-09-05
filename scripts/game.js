@@ -84,7 +84,7 @@ const runGame = () => {
     progressBar.value = secondCount * 10;
   }, ONE_SECOND);
 
-  for (let i = 0; i < 250; i++) {
+  for (let i = 0; i < 180; i++) {
     addEmotee();
   }
 }
