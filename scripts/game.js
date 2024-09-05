@@ -25,7 +25,7 @@ const runGame = () => {
     // event.target is the targeted image
     const emotee = event.target;
     if (emotee.dataset.mood === currentMood) {
-      emotee.parentNode.replaceChild()
+      emotee.remove();
       points++;
       addEmotee();
     }
