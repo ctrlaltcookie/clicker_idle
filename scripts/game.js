@@ -2,6 +2,8 @@ const letterFactory = () => {
   return `<img src="images/a.png" alt="" id="a"></img>`
 }
 
+let currentMood = "sad";
+
 const runGame = () => {
   let gameDiv = document.getElementById("game");
   gameDiv.innerHTML = letterFactory();
