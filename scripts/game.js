@@ -10,7 +10,7 @@ const runGame = () => {
   let gameDiv = document.getElementById("game");
 
   const addEmotee = () => {
-    gameDiv.innerHTML += letterFactory(getRandomMood());
+    gameDiv.innerHTML += letterFactory();
   }
 
   const clickHandler = (event) => {
@@ -21,10 +21,6 @@ const runGame = () => {
       points++;
       addEmotee();
     }
-  }
-
-  const letterFactory = (mood) => {
-    return `<img data-mood="${mood}" src="images/a.png" alt="" id="a"></img>`
   }
 
   const getRandomInt = (max, plus = true) => {
@@ -46,6 +42,17 @@ const runGame = () => {
     if (rand === 4) {
       return MOODS.HUNGRY;
     }
+  }
+
+  const letterFactory = (mood) => {
+    const emoteeMood = getRandomMood();
+    const styles = {
+      ANGRY: "float-vertical",
+      HAPPY: "float-horizontal",
+      SAD: "float-horizontal",
+      HUNGRY: "float-horizontal"
+    }
+    return `<img data-mood="${mood}" class="${styles[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
   }
 
   // variables for navigation zxc
