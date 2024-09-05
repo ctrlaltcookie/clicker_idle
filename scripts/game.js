@@ -15,6 +15,42 @@ const runGame = () => {
     gameDiv.innerHTML += letterFactory();
   }
 
+  const getRandomEmoti = () => {
+    const EMOTI = [
+      "@",
+      "~",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "sunglasses",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z"
+    ]
+    const rand = getRandomInt(28);
+    return EMOTI[rand];
+  }
+
   const incrementPoints = () => {
     if (currentMood === MOODS.NEUTRAL) return;
     points++
@@ -31,33 +67,35 @@ const runGame = () => {
     }
   }
 
-  const getRandomInt = (max, plus = true) => {
+  // allows for 0 based indexing now
+  const getRandomInt = (max) => {
     let rand = Math.floor(Math.random() * max);
-    return plus ? rand + 1 : rand
+    return rand
   }
 
   const getRandomMood = () => {
-    const rand = getRandomInt(10);
-    if (rand === 1) {
+    const rand = getRandomInt(9);
+    if (rand === 0) {
       return MOODS.HAPPY;
     }
-    if (rand === 2){
+    if (rand === 1){
       return MOODS.ANGRY;
     } 
-    if (rand === 3) {
+    if (rand === 2) {
       return MOODS.SAD;
     }
-    if (rand === 4) {
+    if (rand === 3) {
       return MOODS.HUNGRY;
     }
-    if (rand >= 5) {
+    if (rand >= 4) {
       return MOODS.NEUTRAL;
     }
   }
 
   const letterFactory = (mood) => {
     const emotiMood = mood || getRandomMood();
-    return `<img data-mood="${emotiMood}" class="${emotiMood}" src="images/emoti/${randomEmoti}.png" alt="" draggable="false"></img>`
+    const emoti = getRandomEmoti();
+    return `<img data-mood="${emotiMood}" class="${emotiMood}" src="images/emoti/${emoti}.png" alt="" draggable="false"></img>`
   }
 
   // variables for navigation zxc
