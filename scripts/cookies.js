@@ -6,7 +6,6 @@ window.addEventListener("load", () => {
     let popup = document.getElementById("cookie-popup");
     popup.remove();
   }
-
 })
 
 const saveCookie = () => {
@@ -14,7 +13,3 @@ const saveCookie = () => {
   let popup = document.getElementById("cookie-popup");
   popup.remove();
 };
-
-const resetCookie = () => {
-  document.cookie = "";
-}
