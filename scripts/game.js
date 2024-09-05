@@ -9,6 +9,13 @@ const runGame = () => {
     return plus ? rand + 1 : rand
   }
 
+  const MOODS = {
+    HAPPY: "happy",
+    SAD: "sad",
+    ANGRY: "angry",
+    HUNGRY: "hungry"
+  }
+
   const getRandomMood = () => {
     const rand = getRandomInt(3);
     if (rand === 1) {
@@ -29,22 +36,23 @@ const runGame = () => {
   const ONE_SECOND = 1000;
   const TEN_SECONDS = 10 * ONE_SECOND
   let moodeLabel = document.getElementById("current_mood");
-
-  const MOODS = {
-    HAPPY: "happy",
-    SAD: "sad",
-    ANGRY: "angry",
-    HUNGRY: "hungry"
-  }
+  let progressBar = document.getElementById("progress_bar")
 
   document.body.addEventListener("click", clickHandler);
 
   let currentMood = getRandomMood();
 
-  let moodTimer = setInterval(() => {
-    currentMood = getRandomMood();
-    moodeLabel.innerText = currentMood;
-  }, TEN_SECONDS);
+  let secondCount = 0;
+  let gameTimer = setInterval(() => {
+    if (secondCount >= 10) {
+      secondCount = 0;
+      currentMood = getRandomMood();
+      moodeLabel.innerText = currentMood;
+    };
+    secondCount++;
+
+    progressBar.value = secondCount * 10;
+  }, ONE_SECOND);
 
   let gameDiv = document.getElementById("game");
 
