@@ -15,6 +15,7 @@ const runGame = () => {
 
   let points = 0;
   let gameDiv = document.getElementById("game");
+  let pointTotal = documen.getElementById("point_total")
 
   const addEmotee = () => {
     gameDiv.innerHTML += letterFactory();
@@ -24,7 +25,7 @@ const runGame = () => {
     // event.target is the targeted image
     const emotee = event.target;
     if (emotee.dataset.mood === currentMood) {
-      emotee.remove();
+      emotee.parentNode.replaceChild()
       points++;
       addEmotee();
     }
@@ -52,8 +53,8 @@ const runGame = () => {
   }
 
   const letterFactory = (mood) => {
-    const emoteeMood = getRandomMood();
-    return `<img data-mood="${emoteeMood}" class="${STYLES[emoteeMood]}" src="images/a.png" alt="" id="a" draggable="false"></img>`
+    const emoteeMood = mood || getRandomMood();
+    return `<img data-mood="${emoteeMood}" class="${STYLES[emoteeMood]}" src="images/a.png" alt="" draggable="false"></img>`
   }
 
   // variables for navigation zxc
@@ -72,15 +73,16 @@ const runGame = () => {
   moodeLabel.innerText = currentMood;
 
   let secondCount = 0;
+  // tbh the kind of game loop
   let gameTimer = setInterval(() => {
     if (secondCount >= 10) {
       secondCount = 0;
       currentMood = getRandomMood();
-      moodeLabel.innerText = currentMood;
+      moodeLabel.innerText = `click the ${currentMood} text`;
       moodeLabel.className = STYLES[currentMood];
     };
     secondCount++;
-
+    pointTotal.innerText = points;
     progressBar.value = secondCount * 10;
   }, ONE_SECOND);
 
