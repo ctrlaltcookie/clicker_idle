@@ -52,7 +52,7 @@ const runGame = () => {
       SAD: "float-horizontal",
       HUNGRY: "float-horizontal"
     }
-    return `<img data-mood="${mood}" class="${styles[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
+    return `<img data-mood="${emoteeMood}" class="${styles[emoteeMood]}" src="images/a.png" alt="" id="a"></img>`
   }
 
   // variables for navigation zxc
