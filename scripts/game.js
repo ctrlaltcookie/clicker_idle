@@ -77,7 +77,7 @@ const runGame = () => {
       secondCount = 0;
       currentMood = getRandomMood();
       moodeLabel.innerText = `click the ${currentMood} text`;
-      moodeLabel.className = STYLES[currentMood];
+      moodeLabel.className = currentMood;
     };
     secondCount++;
     progressBar.value = secondCount * 10;
