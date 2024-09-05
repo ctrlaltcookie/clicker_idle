@@ -150,11 +150,13 @@ progress[value]::-webkit-progress-bar {
 }
 
 .float-vertical {
-    animation: float-vertical 3s linear infinite both -0.5s;
+    animation: float-vertical 0.3s linear infinite both -0.5s;
+    color: red;
 }
 
 .float-horizontal {
-    animation: float-horizontal 3s linear infinite both -0.5s;
+    animation: float-horizontal 2s linear infinite both -0.5s;
+    color: green;
 }
 
 @keyframes float-vertical {
@@ -162,7 +164,7 @@ progress[value]::-webkit-progress-bar {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0);
