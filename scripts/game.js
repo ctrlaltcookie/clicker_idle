@@ -2,9 +2,12 @@ const letterFactory = () => {
   return `<img src="images/a.png" alt="" id="a"></img>`
 }
 
+const MOODS = {
+  HAPPY: "happy",
+  SAD: "sad"
+}
+
 const ONE_SECOND = 1000;
-
-
 
 const runGame = () => {
   document.body.addEventListener("click", clickHandler);
@@ -16,7 +19,7 @@ const runGame = () => {
 
   let gameDiv = document.getElementById("game");
 
-  gameDiv.innerHTML = letterFactory();
+  gameDiv.innerHTML += letterFactory();
 }
 
 const clickHandler = (event) => {
