@@ -145,9 +145,9 @@ progress[value]::-webkit-progress-bar {
   margin: auto;
   position: fixed;
   bottom: 0px;
-  width: 50%;
+  width: 100%;
   background-color: brown;
-  height: 100px;
+  height: 75px;
   color: white;
   align-items: center;
 
